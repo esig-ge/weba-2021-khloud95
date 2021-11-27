@@ -1,0 +1,63 @@
+{% extends 'shop/layouts/base.html' %}
+{% load static %}
+
+{% block title %}Favoris{% endblock title %}
+{% block content %}
+    <div class="containerMax">
+        <div class="container">
+
+            <h1>Votre wish list</h1>
+            <br/>
+
+            {% for produit in new %}
+                <div class="card m-3 d-inline-flex" style="width: 25%;">
+                    <div class="card-body">
+                        {% if produit.typeProd == 'Cosmetique' %}
+                            <a class="text-decoration-none" href="{% url 'shop:detailsCos' produit.id %}">
+                        {% elif produit.typeProd == 'Produit interieur' %}
+                            <a class="text-decoration-none" href="{% url 'shop:detailsProInt' produit.id %}">
+                        {% else %}
+                            <a class="text-decoration-none" href="{% url 'shop:detailsVet' produit.id %}">
+                        {% endif %}
+                        {% if produit.nomFichier %}
+                        <img class="cadre" src="{% static produit.nomFichier.url %}" alt="{{ produit.nomFichier }}">
+                        {% endif %}
+                        <p class="text-uppercase text-center fs-5">
+                            {{ produit.nom }}
+                        </p>
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+
+        {% for atelier in newate %}
+                <div class="card m-3 d-inline-flex" style="width: 25%;">
+                    <div class="card-body">
+                                <a class="text-decoration-none" href="{% url 'shop:detailsAtelier' atelier.id %}">
+                                    {% if atelier.nomFichier %}
+                                        <img class="cadre" src="{% static atelier.nomFichier.url %}" alt="{{ atelier.nomFichier }}">
+                                    {% endif %}
+                        <p class="text-uppercase text-center fs-5">
+                            {{ atelier.titre }}
+                        </p>
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+
+
+
+            {% if bool %}
+                <div class="row">
+                    <h1>Vous n'avez pas de favoris enregistré !</h1>
+                    <p>Selectionnez et commandez vos articles favoris plus tard !</p>
+                </div>
+            {% endif %}
+
+        </div>
+    </div>
+    <br/><br/>
+{% include 'shop/layouts/footer_fixed.html' %}
+
+
+{% endblock content %}

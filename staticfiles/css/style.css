@@ -1,0 +1,113 @@
+/*-------------------------------------------------------------------*/
+/*Image pour les ateliers sont prise depuis le site "Succes Scolaire"*/
+/*-------------------------------------------------------------------*/
+html {
+    height: 100%;
+
+}
+
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+
+}
+
+main {
+
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+.imageBackGround{
+    background: url('../img/logoGauche.png') left no-repeat  , url('../img/logoDroit.png') right no-repeat ;
+    background-size: 20%;
+}
+
+/* CSS du header */
+
+header{
+    height: 20%;
+
+}
+
+.far fa-user{
+    width: 5px;
+}
+.firstNav{
+    margin-bottom: 50px;
+    text-align: center;
+
+}
+
+.nav-link{
+    color: #000;
+}
+
+.nav-link:hover{
+    color: #128C9F;
+}
+
+#navHeader{
+    border-top: 4px solid #EBA427;
+     border-bottom: 4px solid #EBA427;
+    background-color: rgba(18, 140, 159, 0.5);
+    margin-bottom: 300px;
+    /*!*background-color: #128C9F;*!*/
+    /*!*border-bottom: 4px solid #EBA427;*!*/
+}
+
+#search_button_color{
+    color:#EBA427;
+}
+
+/*footer*/
+footer{
+    background-color: white;
+    color: rgba(18, 140, 159, 0.5);
+    height: 100px;
+
+}
+
+.fa-instagram{
+    color: rgba(18, 140, 159, 0.5);
+}
+
+
+#fondBougies{
+    background: url('../img/bougieDeMassage.JPG')  center no-repeat;
+    background-size: 100%;
+}
+
+#fondTurban{
+    background: url('../img/turban.JPG')  center no-repeat;
+    background-size: 100%;
+
+}
+
+#fondLogo{
+    background: url('../img/logo.png')  center no-repeat;
+    background-size: 50%;
+}
+
+
+.BoutonAccueil{
+    background:rgba(255, 255, 255,0.5) ;
+    height: 40px;
+}
+
+.trAccueil:hover{
+    filter: blur(1px) ;
+}
+
+button.stripe-button-el>span {
+  background-color: rgba(18, 140, 159, 0.5) !important;
+  background-image: none;
+}
+
+#marge_bas{
+    margin-top: 100px;
+}

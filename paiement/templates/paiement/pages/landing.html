@@ -1,0 +1,53 @@
+{% extends 'shop/layouts/base.html' %}
+{% load static %}
+{% block title %}Détails de votre commande {% endblock title %}
+{% block content %}
+ <div class="container">
+ <br/> <br/>
+
+    <section class="mt-5">
+        <table class="table mx-auto w-50">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Articles</th>
+                <th scope="col">Prix unitaire</th>
+                <th scope="col">Quantité</th>
+                <th scope="col">Total</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for item in panier %}
+                <tr>
+                    <th scope="row">{{ forloop.counter }}</th>
+                    {% if item.product  and not item.atelier%}
+                        <td>{{ item.product.nom }}</td>
+                     {% elif item.atelier and not item.product == 0 %}
+                        <td>{{ item.atelier.titre}}</td>
+                        {% else %}
+                        <td>{{ item.atelier.titre}}</td>
+                        <td>{{ item.product.nom }}</td>
+                    {% endif %}
+                    <td>{% widthratio item.price item.quantity 1 %}</td>
+                    <td>{{ item.quantity }}</td>
+                    <td>{{ item.price }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <div class="mx-auto w-50">
+            <p><span style="font-weight: bold">Total :</span> {% widthratio prix_total 100 1 %} CHF</p>
+            <form action="{% url 'paiement:charge' %}" method="post">
+            {% csrf_token %}
+            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                    data-key="{{ STRIPE_PUBLIC_KEY }}"
+                    data-description="Paiement"
+                    data-amount="{{ prix_total }}"
+                    data-locale="auto">
+            </script>
+            </form>
+        </div>
+    </section>
+</div>
+    {% include 'shop/layouts/footer_fixed.html' %}
+{% endblock %}

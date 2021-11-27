@@ -1,0 +1,49 @@
+<!-- Header -->
+
+
+{% extends 'shop/layouts/base.html' %}
+{% load static %}
+
+{% block title %}Insertion Produit Intérieur{% endblock title %}
+
+<!-- Body -->
+{% block content %}
+
+    <br/>
+    <div class="container-xxl" style="margin-top: 30px; margin-left: 15%">
+        <div class="container-sm">
+            <h2 class="p-3">Insertion Produits Intérieurs</h2>
+            <hr/>
+            <div class="order-4 p-4 bd-highlight" style=" margin-left: 10%; width: 50%">
+                <form action="{% url 'administration:insertionProInt' %}" method="post" enctype="multipart/form-data">
+
+                    {% csrf_token %}
+
+                    {{ formInsertProInt.as_p }}
+                    <br/>
+                    <table style="margin-left: 45%;margin-right: 5%;">
+                            <tr>
+                                <th ><input type="submit" value="Ajouter" class="btn btn-outline-secondary"></th>
+                                <th><a href="{% url 'administration:gestionProduit'  %}">
+                                    <button type="button" class="btn btn-outline-secondary">
+                                        Retour
+                                    </button>
+                                </a></th>
+                                <th><a href="{% url 'administration:accueilAdmin'  %}">
+                                    <button type="button" class="btn btn-outline-secondary">
+                                        Retour Accueil
+                                    </button>
+                                </a>
+                                </th>
+                            </tr>
+                        </table>
+                    <br/>
+                </form>
+            </div>
+
+
+        </div>
+    </div>
+    <br/><br/>
+    {% include 'shop/layouts/footer_fixed.html' %}
+{% endblock content %}

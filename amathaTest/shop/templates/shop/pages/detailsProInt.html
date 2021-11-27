@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+{% extends 'shop/layouts/base.html' %}
+{% load static %}
+{% block title %}Produits Interieur en détail {% endblock title %}
+{% block content %}
+    <div class="containerMax">
+        <div class="container">
+            <div class="descriptionDetails">
+                <div class="d-flex" style="margin-top: 2%;">
+                    <hr style=" width: 35%; size:5px;color:#EBA427;margin-left:auto;margin-right: 15px;margin-top: 3.5%; ">
+                    <h3 style="padding-top:2%; ">  Détails {{ produitInt.nom }}  </h3>
+                    <hr style=" width: 35%; size:5px;color:#EBA427;margin-right:auto;margin-left:15px ; margin-top: 3.5%;">
+                </div>
+                <div class="row g-0 mx-auto rounded" style="width: 80%;height: 50%; ">
+                    <div class="col-6 col-md-5 ">
+                        {% if produitInt.nomFichier %}
+                            <img src="{% static produitInt.nomFichier.url %}" alt="{{ produitInt.nomFichier }}"
+                                 class="rounded mx-auto d-block"
+                                 style=" margin-top: 3%;margin-left: 5%; margin-bottom:3%; width:400px; height: 270px;">
+                        {% endif %}
+                    </div>
+                    <div class="detailText col-sm-6 col-md-7 fs-5 " style="margin-top: 1%;">
+                        <p class="text-uppercase">{{ produitInt.nom }} </p>
+                        <p style="">Prix : {{ sommesProInt.montant }} CHF</p>
+
+
+                        <button type="button" class="btn btn-outline-secondary "><a
+                                href="{% url 'cart:add_to_cart_proInt' produitInt.id %}">Ajouter au panier</a></button>
+                        {% if produitInt in proIntFav %}
+                            <a href="{% url 'account:favourite_add_proInt' produitInt.id %}">
+                                <i class="fas fa-heart" style="margin-left: 2%;color: black;"></i>
+                            </a>
+                        {% else %}
+                            <a href="{% url 'account:favourite_add_proInt' produitInt.id %}">
+                                <i class="far fa-heart" style="margin-left: 2%;color: black;"></i>
+                            </a>
+                        {% endif %}
+                        {#            Accordion pour plus d'information#}
+                        <div class="accordion accordion-flush" id="accordionFlushExample">
+                            <div class="accordion-item" style="margin-left: -2%;">
+                                <h2 class="accordion-header" id="flush-headingOne">
+                                    <button style=" margin-top: 2%;" class="accordion-button collapsed fs-5"
+                                            type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne"
+                                            aria-expanded="false" aria-controls="flush-collapseOne">
+                                        Informations supplémentaires
+                                    </button>
+                                </h2>
+                                <div id="flush-collapseOne" class="accordion-collapse collapse"
+                                     aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                    <div class="accordion-body">
+                                        <p>Description : {{ produitInt.description }}</p>
+                                        <p>Poid : {{ produitInt.poid }}</p>
+                                        <p>Type : {{ produitInt.type }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+<br/><br/>
+    {% include 'shop/layouts/footer_fixed.html' %}
+{% endblock %}

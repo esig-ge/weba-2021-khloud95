@@ -1,0 +1,115 @@
+<!-- Header -->
+
+{% extends 'shop/layouts/base.html' %}
+{% load static %}
+
+{% block title %}Détail Ateliers{% endblock title %}
+
+<!-- Body -->
+{% block content %}
+
+
+    <br/>
+    <div class="container-xxl" style="margin-left: 20%; ">
+        <div class="container-sm">
+            <h2>Détails Atelier</h2>
+            <hr/>
+            <table class="table">
+                <tr>
+                    <td style="font-weight: bold">
+                        Titre :
+                    </td>
+                    <td>
+{#                        affichage du titre d'atelier#}
+                        {{ detailsAtelier.titre }}
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="font-weight: bold">
+                        Description :
+                    </td>
+                    <td>
+{#                        affichage de la description d'atelier#}
+                        {{ detailsAtelier.description }}
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="font-weight: bold">
+                        Nombre max de personne :
+                    </td>
+                    <td>
+{#                        affichage de la nb de personne max d'atelier#}
+                        {{ detailsAtelier.nbrPersonneMax }}
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="font-weight: bold">
+                        Date début :
+                    </td>
+                    <td>
+{#                        affichage de la date début d'atelier#}
+                        {{ detailsAtelier.dateDebut }}
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="font-weight: bold">
+                        Heure début :
+                    </td>
+                    <td>
+{#                        affichage de l'heure début d'atelier#}
+                        {{ detailsAtelier.heureDebut }}
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="font-weight: bold">
+                        Heure fin :
+                    </td>
+                    <td>
+{#                        affichage de l'heure fin d'atelier#}
+                        {{ detailsAtelier.heureFin }}
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="font-weight: bold">
+                        Adresse :
+                    </td>
+                    <td>
+{#                        affichage de l'adresse' d'atelier#}
+                        {{ detailsAtelier.adresse }}
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="font-weight: bold">
+                        Prix :
+                    </td>
+                    <td>
+{#                        affichage du prix début d'atelier#}
+                        {{ detailsAtelier.prix }}
+                    </td>
+                </tr>
+
+
+            </table>
+<br/>
+            <a href="{% url 'administration:updateAtelier' detailsAtelier.id %}">
+                <button type="button" class="btn btn-outline-secondary">
+                    Modifier atelier
+                </button>
+            </a>
+
+        </div>
+    </div>
+
+
+
+
+    <br/><br/><br/>
+    {% include 'shop/layouts/footer_fixed.html' %}
+{% endblock content %}

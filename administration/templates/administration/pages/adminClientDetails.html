@@ -1,0 +1,120 @@
+<!-- Header -->
+
+{% extends 'shop/layouts/base.html' %}
+{% load static %}
+
+{% block title %}Client Détails{% endblock title %}
+
+<!-- Body -->
+{% block content %}
+
+
+    <br/>
+
+    <div class="container-xxl" style="margin-left: 20%; ">
+        <div class="container-sm">
+
+            <h2>Détails Client et Commande</h2>
+            <hr/>
+
+{#        Déclaration des variables en utilisant java script#}
+            <script>
+                {#variable pour compter le nb de commandes#}
+                var cptCommande = 0;
+                {#en cas d'une seule commande#}
+                const commande = "commande";
+                {#en cas de plusieurs commandes#}
+                const commandes = "commandes";
+            </script>
+
+{#Parcourir les commandes#}
+            {% for com in commandes %}
+                <script>
+                {#comptage pour les commandes#}
+                    var cptCommande = cptCommande + 1;
+                </script>
+
+            {% endfor %}
+
+            <p>
+                <span style="font-weight: bold">{{ detailsClient.prenom }} {{ detailsClient.nom }}</span> a commandé
+                <span style="color: #CC3434; font-weight: bold">
+                        <script>
+                            {#afficher le compteur#}
+                            document.write(cptCommande)
+                        </script>
+                    </span>
+
+                <script>
+                    {#vérifier si il y a une seule ou plusieur commandes#}
+                    if (cptCommande <= 1) {
+                        document.write(commande)
+                    } else {
+                        document.write(" ", commandes)
+                    }
+                </script>
+            </p>
+
+            <table class="table table-bordered" style="width: 1000px;">
+                <tr>
+                    <th>N° commande</th>
+                    <th>Total</th>
+                    <th>Satut</th>
+                    <th colspan="2">Date de commande</th>
+                </tr>
+
+                {% for com in commandes %}
+                    <tr>
+                        <td>{{ com.comNumero }}</td>
+
+                        {% for totalfinal in totalCommande %}
+
+                            {% if forloop.counter == forloop.parentloop.counter %}
+
+                                <td for="insertStock" class="col-form-label">
+                                    {{ totalfinal }}
+                                </td>
+
+                            {% endif %}
+
+                        {% endfor %}
+
+                        {% if com.envoye == True %}
+                            <td>Envoyé</td>
+                        {% else %}
+                            <td>En attente</td>
+                        {% endif %}
+
+                        <td>{{ com.comDate }}</td>
+
+                        <td align="right">
+                            <a href="{% url 'administration:adminCommandeDetails' com.id %}"
+                               class="btn-outline-secondary btn-sm"
+                               class="text-decoration-none">Détails commande</a>
+                        </td>
+                    </tr>
+
+
+                {% endfor %}
+            </table>
+
+        </div>
+    </div>
+    <br/> <table style="margin-left: 65%;margin-right: 5%;">
+                            <tr>
+                                <th><a href="{% url 'administration:gestionClient'  %}">
+                                    <button type="button" class="btn btn-outline-secondary">
+                                        Retour
+                                    </button>
+                                </a></th>
+                                <th><a href="{% url 'administration:accueilAdmin'  %}">
+                                    <button type="button" class="btn btn-outline-secondary">
+                                        Retour Accueil
+                                    </button>
+                                </a>
+                                </th>
+                            </tr>
+                        </table><br/><br/>
+    {% include 'shop/layouts/footer_fixed.html' %}
+{% endblock content %}
+

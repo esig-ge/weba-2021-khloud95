@@ -1,0 +1,36 @@
+<!-- Header -->
+
+
+{% extends 'shop/layouts/base.html' %}
+{% load static %}
+
+{% block title %}Insertion Prix{% endblock title %}
+
+<!-- Body -->
+{% block content %}
+
+    <br/>
+    <div class="container-xxl" style="margin-top: 20px; margin-left: 15%">
+        <div class="container-sm">
+            <h2 class="p-3">Insertion Prix</h2>
+            <hr/>
+            <div class="order-4 p-4 bd-highlight" style=" margin-left: 60px">
+                <form action="{% url 'administration:insertionPrix' %}" method="post" enctype="multipart/form-data">
+
+                    {% csrf_token %}
+
+                    {{ formInsertPrix.as_p }}
+                    <strong><p>Veuillez séléctionner dans la liste déroulante le dernier produit par son nom.</p>
+                    </strong>
+
+                    <br/>
+                    <input type="submit" class="btn btn-secondary" value="Ajouter">
+                </form>
+            </div>
+        </div>
+    </div>
+    <br/><br/>
+    {% include 'shop/layouts/footer_fixed.html' %}
+
+{% endblock content %}
+

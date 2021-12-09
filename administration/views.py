@@ -260,18 +260,18 @@ def adminCommandeDetails(request, id):
 ###############################################
 def insertionVetement(request):
     # récupérer les formulaires dans forms.py
-    if request.method == "POST":
+    if request.method == "POST": #Pour vérifier si le formlaire a envoié qqch
         formInsertVet = PosteInsertVet(request.POST, request.FILES)
 
         if formInsertVet.is_valid():
-            formInsertVet = formInsertVet.save(commit=False)
-            formInsertVet.author = request.user
-            formInsertVet.save()
+            formInsertVet = formInsertVet.save(commit=False) ##enregistre pas le formulaire mtn
+            formInsertVet.author = request.user ## donc pour pouvoir modifier un attribut
+            formInsertVet.save() ## c'est moi qui save
 
             return redirect('administration:insertionPrix')
 
     else:
-        formInsertVet = PosteInsertVet()
+        formInsertVet = PosteInsertVet() ## c'entre d'abord dans l'else psk il est vide
 
     if request.user.is_superuser:
         return render(request, "administration/pages/insertionVetement.html",

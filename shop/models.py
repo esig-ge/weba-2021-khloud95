@@ -20,7 +20,7 @@ class Produit(models.Model):
     produitActif = models.BooleanField(default=True)
     nomFichier = models.ImageField(blank=True, null=True)
 
-    def get_absolute_url(self):
+    def get_absolute_url(self): ## à rechercher
         return reverse('index', args=[str(self.id)])
 
     def __str__(self):

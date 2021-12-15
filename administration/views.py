@@ -260,6 +260,7 @@ def adminCommandeDetails(request, id):
 ###############################################
 def insertionVetement(request):
     # récupérer les formulaires dans forms.py
+    # Source : https://www.it-swarm-fr.com/fr/django/que-signifie-request.method-post-dans-django/1041740602/
     if request.method == "POST": #Pour vérifier si le formlaire a envoié qqch
         formInsertVet = PosteInsertVet(request.POST, request.FILES)
 

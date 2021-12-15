@@ -22,6 +22,25 @@ class Produit(models.Model):
 
     def get_absolute_url(self): ## à rechercher
         return reverse('index', args=[str(self.id)])
+    # Source : https://stackoverflow.com/questions/43179875/when-to-use-django-get-absolute-url-method
+    # Sources : https://stackoverflow.com/questions/13503645/what-is-permalink-and-get-absolute-url-in-django
+    # Pour éviter d'aller dans tout les templates et de les modifier
+    # le principe de DRY --> Don't repeat yourself
+    # à chaque fois on modifie l'URL.
+    # Et pour générer un url unique pour chaque produit
+    # Cette méthode est là --> pour dire à django comment calculer les URLS canoniques
+    ## --> Donc cette méthode retourne un String qui fait référence à un objet par l'URL
+    ## Cette méthode dis à django ou aller quand une nouvelle instance est créee
+
+    ## reverse --> C'est une méthode qui prend 2 paramètre
+
+    # Source : https://newbedev.com/what-is-reverse-in-django
+    ## L'idée est quand on veut par exemple modifier les urls dans le futur
+    ## Donc au lieu de modifier par tout les urls, on le modifie seulement dans l'url.py
+    ## C'est grace à la méthode de reverse et le concept de DRY
+    ## L'idée est --> de modifier une seule place
+
+
 
     def __str__(self):
         return self.nom

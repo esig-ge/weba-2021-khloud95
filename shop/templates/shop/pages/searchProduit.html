@@ -16,9 +16,7 @@
                     {% for pri in prix %}
 
                         {% if produit.id == pri.produit.id and produit.produitActif == 1 %}
-                            {#                            <p style="margin: auto">{{ produit }} - {{ pri.montant }} - {{ pri.produit }}</p>#}
 
-                            {#######################################################################################################################}
                             <div class="card m-3 d-inline-flex" style="width: 25%;">
                             <span class="card-notify-year">
                             {% if produit in produitsFav %}
@@ -52,7 +50,6 @@
                                     </div>
                                 </div>
                             </div>
-                            {#{#######################################################################################################################}
 
                         {% endif %}
 

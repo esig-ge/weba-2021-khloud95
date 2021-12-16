@@ -5,37 +5,28 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-4 ">
+
+
+
                     <form method="post" action="{% url 'shop:searchProduit' %}">
                         {% csrf_token %}
                         <div class="p-1 m-5 bg-light shadow border border-secondary">
                             <div class="input-group ">
-                                <input type="search" placeholder="Cherchez vos produits ici" aria-label="search"
+<!--                                mettre un id pour l'utiliser dans JS-->
+                                <input id= "search_input" type="search" placeholder="Cherchez vos produits ici" aria-label="search"
                                        name="searchedProduit"
                                        class="form-control border-0 bg-light">
-{#                                <div class="input-group-append">#}
-{#                                    <div class="btn-group">#}
-{#                                        <button type="button"#}
-{#                                                class="btn btn-outline-dark dropdown-toggle smallscreen"#}
-{#                                                data-bs-toggle="dropdown" aria-expanded="false">#}
-{#                                            Catégorie#}
-{#                                        </button>#}
-{#                                        <div class="dropdown-menu">#}
-{#                                            <a class="dropdown-item" href="#">Produits</a>#}
-{#                                            <a class="dropdown-item" href="#">Intérieur</a>#}
-{#                                            <a class="dropdown-item" href="#">Vêtements</a>#}
-                                            {#                                            <div class="dropdown-divider"></div>#}
-                                            {#                                            <a class="dropdown-item" href="#">Test Link</a>#}
-{#                                        </div>#}
-{#                                    </div>#}
-{#                                </div>#}
                                 <div class="input-group-append">
-                                    <button type="submit" class="btn btn-link mt-1" id="search_button_color"><i
-                                            class="fas fa-search"></i>
+                                    <button type="submit" class="btn btn-link mt-1" id="search_button_color">
+                                        <i class="fas fa-search"></i>
                                     </button>
                                 </div>
                             </div>
                         </div>
                     </form>
+
+
+
                 </div>
 
                 <div class="col-4 py-4">

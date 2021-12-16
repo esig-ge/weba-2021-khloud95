@@ -3,9 +3,15 @@
 
 {% block title %}Accueil {% endblock title %}
 {% block content %}
-    {% include 'shop/layouts/searchbar.html' %}
+<!--    {% include 'shop/layouts/searchbar.html' %}-->
     <div class="espace header" style="height:30px;"></div>
+
+
+
     <!-- Carousel -->
+<div id="myContent">
+
+
     <div id="carouselExampleIndicators" class="carousel slide mt-5" data-bs-ride="carousel">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
@@ -40,6 +46,9 @@
             <span class="visually-hidden">Next</span>
         </a>
     </div>
+</div>
+
+
 
     <div style="height:100px"></div>
 
@@ -121,6 +130,9 @@
         </table>
     </div>
 <br/><br/>
+
+
+
     {% include 'shop/layouts/footer.html' %}
 
 {% endblock content %}

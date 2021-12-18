@@ -1,0 +1,11 @@
+.imgInfo {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+#proInfo{
+  position: absolute;
+  top: 42%;
+  left: 50%;
+  transform: translate(-300%, 50%);
+}

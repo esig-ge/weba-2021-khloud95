@@ -109,30 +109,28 @@
     }
 
     function imageblur(){
-        image.style.opacity = '0.2';
+        image.style.filter = 'blur(5px)';
     }
 
-    function imageNormal(action1, action2){
-        if(action1){
-            image.style.opacity = '0.2';
-        }
-        else{
-            image.style.opacity = '1';
-        }
+    function imageNormal(){
+        image.style.filter = 'none';
+    }
+
+    function imageEffect(action1, action2){
+        image.addEventListener("mouseover", action1);
+        image.addEventListener("mouseout", action2);
     }
     // Try
-    function blurImgAppearInfo(firstFun, secFun, thirdFun){
+    function blurImgAppearInfo(firstFun, secFun, thirdFun, action1, action2){
         hideInfoMouseOut();
-        infoImg.addEventListener("mouseover", firstFun);
-        infoImg.addEventListener("mouseout", secFun);
-        thirdFun(firstFun, secFun);
-        image.style.opacity = '1';
+        firstFun();
+        secFun();
+        thirdFun(action1, action2);
     }
     // Fin Try
 
     function mouseOver(){
         infoImg.addEventListener("mouseover", appearInfoMouseOver);
-        image.addEventListener("mouseover", imageblur);
     }
 
     function mouseOut(){
@@ -147,12 +145,8 @@
 
     // effect();
 
-    // Try
-    blurImgAppearInfo(appearInfoMouseOver, hideInfoMouseOut, imageNormal);
-
-    // hideInfoMouseOut();
-    // image.addEventListener("mouseover", appearInfoMouseOver);
-    // image.addEventListener("mouseout", hideInfoMouseOut);
+    // Call Function!
+    blurImgAppearInfo(mouseOver, mouseOut, imageEffect, imageblur, imageNormal);
 
 </script>
 

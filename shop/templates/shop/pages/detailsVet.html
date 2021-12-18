@@ -86,9 +86,9 @@
 }
 #proInfo{
   position: absolute;
-  top: 50%;
+  top: 42%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-300%, 50%);
 }
 </style>
 
@@ -112,16 +112,47 @@
         image.style.opacity = '0.2';
     }
 
-    // function mouseOver(){
-    //     infoImg.addEventListener("mouseover", appearInfoMouseOver());
+    function imageNormal(action1, action2){
+        if(action1){
+            image.style.opacity = '0.2';
+        }
+        else{
+            image.style.opacity = '1';
+        }
+    }
+    // Try
+    function blurImgAppearInfo(firstFun, secFun, thirdFun){
+        hideInfoMouseOut();
+        infoImg.addEventListener("mouseover", firstFun);
+        infoImg.addEventListener("mouseout", secFun);
+        thirdFun(firstFun, secFun);
+        image.style.opacity = '1';
+    }
+    // Fin Try
+
+    function mouseOver(){
+        infoImg.addEventListener("mouseover", appearInfoMouseOver);
+        image.addEventListener("mouseover", imageblur);
+    }
+
+    function mouseOut(){
+        infoImg.addEventListener("mouseout", hideInfoMouseOut);
+    }
+
+    // function effect(){
+    //     hideInfoMouseOut();
+    //     mouseOver();
+    //     mouseOut();
     // }
 
-    // function mouseOut(){
-    //     infoImg.addEventListener("mouseout", hideInfoMouseOut());
-    // }
+    // effect();
 
-    image.addEventListener("mouseover", appearInfoMouseOver());
-    image.addEventListener("mouseout", hideInfoMouseOut());
+    // Try
+    blurImgAppearInfo(appearInfoMouseOver, hideInfoMouseOut, imageNormal);
+
+    // hideInfoMouseOut();
+    // image.addEventListener("mouseover", appearInfoMouseOver);
+    // image.addEventListener("mouseout", hideInfoMouseOut);
 
 </script>
 

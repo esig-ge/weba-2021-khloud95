@@ -99,7 +99,9 @@
     var info = document.getElementById('proInfo');
 
     function hideInfoMouseOut(){
-        info.style.display = 'none';
+        if(info.style.display !== 'none'){
+            info.style.display = 'none';
+        }
     }
 
     function appearInfoMouseOver(){
@@ -117,8 +119,8 @@
     }
 
     function imageEffect(action1, action2){
-        image.addEventListener("mouseover", action1);
-        image.addEventListener("mouseout", action2);
+        infoImg.addEventListener("mouseover", action1);
+        infoImg.addEventListener("mouseout", action2);
     }
     // Try
     function blurImgAppearInfo(firstFun, secFun, thirdFun, action1, action2){
@@ -136,14 +138,6 @@
     function mouseOut(){
         infoImg.addEventListener("mouseout", hideInfoMouseOut);
     }
-
-    // function effect(){
-    //     hideInfoMouseOut();
-    //     mouseOver();
-    //     mouseOut();
-    // }
-
-    // effect();
 
     // Call Function!
     blurImgAppearInfo(mouseOver, mouseOut, imageEffect, imageblur, imageNormal);

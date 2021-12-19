@@ -37,7 +37,7 @@ function imageNormal() {
     image.style.filter = 'none';
 }
 
-// Une fonction pour utiliser 2 effect sur l'image
+// Une fonction pour utiliser 2 effects sur l'image
 function imageEffect(action1, action2) {
     infoImg.addEventListener("mouseover", action1);
     infoImg.addEventListener("mouseout", action2);
@@ -53,6 +53,9 @@ function blurImgAppearInfo(firstFun, secFun, thirdFun, action1, action2) {
 
 // Une fonction qui va utiliser l'addEventListener mouseOver
 function mouseOver() {
+    // addEventListener --> c'est une méthode qui prend 2 arguments
+    // 1er --> est le type d'événement
+    // 2e --> est la fonction qu'on veut effectuer pendant cet événement
     infoImg.addEventListener("mouseover", appearInfoMouseOver);
 }
 
@@ -62,4 +65,5 @@ function mouseOut() {
 }
 
 // Une fonction qui va regrouper toutes les fonctions (CallBack Functions)
+// Appelle de cette fonction pour effectuer le travail demandé
 blurImgAppearInfo(mouseOver, mouseOut, imageEffect, imageblur, imageNormal);

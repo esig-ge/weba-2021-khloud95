@@ -35,15 +35,17 @@
 </div>
 
 
-<div class="text-center ">
+<div id= "lastParagraphe" class="text-center ">
     <br>
     <br>
-    <img src="{% static 'img/MargauxQSN.png' %}">
-    <p style="text-align:center">Margaux, créatrice de la marque Amatha</p>
+    <img id="imgMargaux" src="{% static 'img/MargauxQSN.png' %}">
+<!--    <p style="text-align:center">Margaux, créatrice de la marque Amatha</p>-->
 </div>
 <br/><br/>
 
-<script src="{% static 'java/searchBarJS.js' %}"></script>
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+<script src="{% static 'java/quiSommeNous.js' %}"></script>
 
 {% include 'shop/layouts/footer.html' %}
 

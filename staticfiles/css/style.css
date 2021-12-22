@@ -111,3 +111,10 @@ button.stripe-button-el>span {
 #marge_bas{
     margin-top: 100px;
 }
+
+/*///////////////////////////////// JavaScript Style*/
+#lastDiv{
+    color: red;
+    width: 50%;
+    background-color: #0dcaf0;
+}

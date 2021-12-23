@@ -22,6 +22,7 @@ class Produit(models.Model):
 
     def get_absolute_url(self): ## à rechercher
         return reverse('index', args=[str(self.id)])
+    
     # Source : https://stackoverflow.com/questions/43179875/when-to-use-django-get-absolute-url-method
     # Sources : https://stackoverflow.com/questions/13503645/what-is-permalink-and-get-absolute-url-in-django
     # Pour éviter d'aller dans tout les templates et de les modifier

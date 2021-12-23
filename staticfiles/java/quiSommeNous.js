@@ -12,20 +12,32 @@
 const imgAdmin = document.getElementById("imgMargaux");
 
 function addNode(){
-    var node = document.getElementById("lastParagraphe");
-    var newDiv = document.createElement('div');
-    var newParagraphe = document.createElement('p');
+    const node = document.getElementById("lastParagraphe");
+    const newDiv = document.createElement('div');
+    const newParagraphe = document.createElement('p');
+    const img = document.getElementById('imgMargaux');
 
     node.appendChild(newDiv);
     newDiv.appendChild(newParagraphe);
 
     newDiv.setAttribute("id", "lastDiv");
 
-    newParagraphe.textContent = 'Margaux, créatrice de la marque Amatha';
+    function ajoutParagraph(){
+        newParagraphe.textContent = 'Margaux, créatrice de la marque Amatha';
+        newDiv.style.backgroundColor = 'yellow';
+        newDiv.style.width = '20%';
+        newDiv.style.margin = 'auto';
+    }
 
-    newDiv.style.backgroundColor = 'yellow';
-    newDiv.style.width = '50%';
-    newDiv.style.margin = 'auto';
+    function cacherParagraphe(){
+        newDiv.style.display = 'none';
+    }
+
+    img.addEventListener('mouseover', ajoutParagraph)
+    img.addEventListener('mousedown', cacherParagraphe);
+
+
 }
+
 
 addNode();

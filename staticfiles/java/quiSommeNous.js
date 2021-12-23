@@ -29,10 +29,6 @@ function addNode(){
         newDiv.style.margin = 'auto';
     }
 
-    function cacherParagraphe(){
-        newDiv.style.display = 'none';
-    }
-
     img.addEventListener('mouseover', ajoutParagraph)
     img.addEventListener('mousedown', cacherParagraphe);
 

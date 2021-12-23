@@ -18,7 +18,7 @@ function hideInfoMouseOut() {
 // la description en mettant la souris sur le produit
 function appearInfoMouseOver() {
     // je vérifie si la description est bien cachée
-    if (hideInfoMouseOut) {
+    if (info.style.display === 'none') {
         info.style.display = 'block';
         info.style.backgroundColor = 'rgba(255,255,0,0.6)';
         info.style.color = 'black';

@@ -23,17 +23,20 @@ function addNode(){
     newDiv.setAttribute("id", "lastDiv");
 
     function ajoutParagraph(){
-        newParagraphe.textContent = 'Margaux, créatrice de la marque Amatha';
+        text = document.createTextNode("Margaux, créatrice de la marque Amatha")
+        newParagraphe.appendChild(text);
         newDiv.style.backgroundColor = 'yellow';
         newDiv.style.width = '20%';
         newDiv.style.margin = 'auto';
     }
 
-    img.addEventListener('mouseover', ajoutParagraph)
-    img.addEventListener('mousedown', cacherParagraphe);
-
+    // function cacherparagraphe(){
+    //     newDiv.removeChild(newParagraphe);
+    // }
 
 }
 
+img.addEventListener('mouseover', addNode)
 
-addNode();
+
+// img.addEventListener('mousedown', cacherparagraphe);

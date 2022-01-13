@@ -1,4 +1,4 @@
-#!C:\Users\MAHMOUD_KHLO-ESIG\weba-2021-khloud95\myvenv\Scripts\python.exe
+#!c:\users\mahmoud_khlo-esig\weba-2021-khloud95\myvenv\scripts\python.exe
 # When the django-admin.py deprecation ends, remove this script.
 import warnings
 

@@ -1,15 +1,6 @@
-//
-//
-// function replaceContent(){
-//         var myContent = document.getElementById("myContent");
-//         var myParagraphe = myContent.getElementsByTagName("p");
-//         myParagraphe[0].innerHTML = "Hello AMATHA"
-//     }
-//
-//
-// replaceContent();
 
-const imgAdmin = document.getElementById("imgMargaux");
+
+// const imgAdmin = document.getElementById("imgMargaux");
 
 function addNode(){
     const node = document.getElementById("lastParagraphe");
@@ -23,20 +14,19 @@ function addNode(){
     newDiv.setAttribute("id", "lastDiv");
 
     function ajoutParagraph(){
-        text = document.createTextNode("Margaux, créatrice de la marque Amatha")
-        newParagraphe.appendChild(text);
-        newDiv.style.backgroundColor = 'yellow';
-        newDiv.style.width = '20%';
-        newDiv.style.margin = 'auto';
+        var elements = document.querySelectorAll('p')
+        for (var i; i < elements.length; i++) {
+            if(i.length === 0){
+                text = document.createTextNode("Margaux, créatrice de la marque Amatha")
+                newParagraphe.appendChild(text);
+                newDiv.style.backgroundColor = 'yellow';
+                newDiv.style.width = '20%';
+                newDiv.style.margin = 'auto';
+            }
+        }
     }
-
-    // function cacherparagraphe(){
-    //     newDiv.removeChild(newParagraphe);
-    // }
-
+    
 }
 
 img.addEventListener('mouseover', addNode)
 
-
-// img.addEventListener('mousedown', cacherparagraphe);

@@ -25,7 +25,7 @@ function addNode(){
             }
         }
     }
-    
+
 }
 
 img.addEventListener('mouseover', addNode)

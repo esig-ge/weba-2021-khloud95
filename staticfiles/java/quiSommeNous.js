@@ -20,7 +20,7 @@ function addNode(){
         text = document.createTextNode("Margaux, créatrice de la marque Amatha")
         newParagraphe.appendChild(text);
         newDiv.style.backgroundColor = 'yellow';
-        newDiv.style.width = '20%';
+        newDiv.style.width = '20%';   
         newDiv.style.margin = 'auto';
         newParagraphe.style.display = 'block';
     }

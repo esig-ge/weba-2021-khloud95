@@ -12,9 +12,9 @@
         <h3 style="padding-top:2%; ">  Les produits d'intérieur </h3>
         <hr style=" width: 35%; size:2px;color:#EBA427;margin-right:auto;margin-left:15px ; margin-top: 3%;">
         </div>
-            {% for somme in sommesProInt %}
+            {% for pri in prix %}
             {% for pro in produitInt %}
-            {% if somme.produit == pro.produit_ptr and pro.produitActif == 1 %}
+            {% if pri.produit == pro.produit_ptr and pro.produitActif == 1 %}
             <div class="card m-3 d-inline-flex" style="width: 25%;">
 
                 <div class="card-body">
@@ -29,7 +29,7 @@
                             {{ pro.nom }}
                         </p>
 
-                        <p class="text-center">{{ somme.montant }} CHF</p>
+                        <p class="text-center">{{ pri.montant }} CHF</p>
                         <!-- Information pour le a href va nous permetttre de relier avce la page qui sera crée pour le panier-->
                     </a>
 

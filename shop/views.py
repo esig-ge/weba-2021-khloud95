@@ -107,22 +107,13 @@ def vetement(request):
 #################### WEBA AJAX ####################
 def produitInterieur(request):
     produitInt = ProduitInterieur.objects.all()
-    sommesProInt = Prix.objects.all()
-    paginator = Paginator(produitInt, 6)
-    page_num = request.GET.get('page')
-    page_obj = paginator.get_page(page_num)
+    prix = Prix.objects.all()
 
     num = request.user.pk
-    qsProduitsFavs = ProduitInterieur.objects.filter(favoris=num)
-
-    proIntFav = []
-    for produit in qsProduitsFavs:
-        proIntFav.append(ProduitInterieur.objects.get(produit_ptr=produit.pk))
 
     context = {
-        'produitInt': page_obj,
-        'sommesProInt': sommesProInt,
-        'proIntFav': proIntFav,
+        'produitInt': produitInt,
+        'prix': prix,
     }
     return render(request, 'shop/pages/produitInterieur.html', context)
 

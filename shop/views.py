@@ -2,6 +2,7 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.core.paginator import Paginator
+from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from django.shortcuts import render
 
@@ -108,15 +109,28 @@ def vetement(request):
 def produitInterieur(request):
     produitInt = ProduitInterieur.objects.all()
     prix = Prix.objects.all()
-
-    num = request.user.pk
-
     context = {
         'produitInt': produitInt,
         'prix': prix,
     }
     return render(request, 'shop/pages/produitInterieur.html', context)
 
+def produitWithAjax(request):
+    # produitInt = ProduitInterieur.objects.all()
+    # prix = Prix.objects.all()
+
+    listePro = list(ProduitInterieur.objects.values())
+    listePrix = list(Prix.objects.values())
+
+    listProSize = len(listePro)
+
+    # produitListe = []
+    # prixListe = []
+    # for pro in produitInt:
+    #     produitListe.append(pro)
+    # print(produitListe)
+
+    return JsonResponse({'dataPro': listePro, 'dataPrix': listePrix, 'sizeList': listProSize})
 ###########################################################################################
 
 

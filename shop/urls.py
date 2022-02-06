@@ -23,4 +23,9 @@ urlpatterns = [
 
     path('searchProduit', views.searchProduit, name='searchProduit'),
 
+    # WEBA AJAX
+    path('produitWithAjax', views.produitWithAjax, name='produitWithAjax'),
+
+# produitWithAjax
+
 ]

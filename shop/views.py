@@ -104,7 +104,7 @@ def vetement(request):
 
     return render(request, 'shop/pages/vetements.html', context)
 
-
+#################### WEBA AJAX ####################
 def produitInterieur(request):
     produitInt = ProduitInterieur.objects.all()
     sommesProInt = Prix.objects.all()
@@ -125,6 +125,8 @@ def produitInterieur(request):
         'proIntFav': proIntFav,
     }
     return render(request, 'shop/pages/produitInterieur.html', context)
+
+###########################################################################################
 
 
 ###############################################

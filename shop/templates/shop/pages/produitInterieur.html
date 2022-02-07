@@ -12,32 +12,32 @@
         <h3 style="padding-top:2%; ">  Les produits d'intérieur </h3>
         <hr style=" width: 35%; size:2px;color:#EBA427;margin-right:auto;margin-left:15px ; margin-top: 3%;">
         </div>
-            {% for pri in prix %}
-            {% for pro in produitInt %}
-            {% if pri.produit == pro.produit_ptr and pro.produitActif == 1 %}
-            <div class="card m-3 d-inline-flex" style="width: 25%;">
+<!--            {% for pri in prix %}-->
+<!--            {% for pro in produitInt %}-->
+<!--            {% if pri.produit == pro.produit_ptr and pro.produitActif == 1 %}-->
+<!--            <div class="card m-3 d-inline-flex" style="width: 25%;">-->
 
-                <div class="card-body">
-                    <a class="text-decoration-none" href="{% url 'shop:detailsProInt' pro.id %}">
-                        {% comment %}<img class="cadre" src="{{ pho.url }}" alt="{{ pho.nomFichier }}"
-                                          style="height:auto;">{% endcomment %}
-                        {% if pro.nomFichier %}
-                        <img class="cadre" src="{% static pro.nomFichier.url %}" alt="{{ pro.nomFichier }}"
-                             style="height:auto;">
-                        {% endif %}
-                        <p class="text-uppercase text-center fs-5">
-                            {{ pro.nom }}
-                        </p>
+<!--                <div class="card-body">-->
+<!--                    <a class="text-decoration-none" href="{% url 'shop:detailsProInt' pro.id %}">-->
+<!--                        {% comment %}<img class="cadre" src="{{ pho.url }}" alt="{{ pho.nomFichier }}"-->
+<!--                                          style="height:auto;">{% endcomment %}-->
+<!--                        {% if pro.nomFichier %}-->
+<!--                        <img class="cadre" src="{% static pro.nomFichier.url %}" alt="{{ pro.nomFichier }}"-->
+<!--                             style="height:auto;">-->
+<!--                        {% endif %}-->
+<!--                        <p class="text-uppercase text-center fs-5">-->
+<!--                            {{ pro.nom }}-->
+<!--                        </p>-->
 
-                        <p class="text-center">{{ pri.montant }} CHF</p>
-                        <!-- Information pour le a href va nous permetttre de relier avce la page qui sera crée pour le panier-->
-                    </a>
+<!--                        <p class="text-center">{{ pri.montant }} CHF</p>-->
+<!--                        &lt;!&ndash; Information pour le a href va nous permetttre de relier avce la page qui sera crée pour le panier&ndash;&gt;-->
+<!--                    </a>-->
 
-                </div>
-            </div>
-            {% endif %}
-            {% endfor %}
-            {% endfor %}
+<!--                </div>-->
+<!--            </div>-->
+<!--            {% endif %}-->
+<!--            {% endfor %}-->
+<!--            {% endfor %}-->
             <div id="listPro">
                 <div id="produit"></div>
                 <div id="buttonPrevious">
@@ -62,17 +62,23 @@
     const butPre = document.getElementById('buttonPrevious')
     const butNex = document.getElementById('buttonNext')
 
-    let visible = 0
+    let i = 0
+    let len;
+    let pro;
 
     const xhttp = new XMLHttpRequest();
 
     // Define a callback function
-    xhttp.onload = function() {
-      // Here you can use the Data
+    xhttp.onload = function (){
+        const response = JSON.parse(xhttp.responseText);
+        console.info(response);
+        // Here you can use the Data
+        pro = 
     }
 
+
     // Send a request
-    xhttp.open("GET", "ajax_info.txt");
+    xhttp.open("GET", "produitWithAjax");
     xhttp.send();
 
     ////// Event //////

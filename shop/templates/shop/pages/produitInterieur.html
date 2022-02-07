@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-{% extends 'shop/layouts/base.html' %}
+<!--{% extends 'shop/layouts/base.html' %}-->
 {% load static %}
 
 {% block title %}Produits d'intérieur {% endblock title %}
@@ -41,70 +41,21 @@
             <div id="listPro">
                 <div id="produit"></div>
                 <div id="buttonPrevious">
-                    <input type="button" onclick="previous()" value="<<">
+                    <input type="button" value="<<">
                 </div>
                 <div id="buttonNext">
-                    <input type="button" onclick="next()" value=">>">
+                    <input type="button" value=">>">
                 </div>
             </div>
         </div>
     </div>
 
 <br/><br/>
+
+<!--WEBA AJAX-->
+<script src="{% static 'java/ajaxWeba.js' %}"></script>
     {% include 'shop/layouts/footer_fixed.html' %}
 {% endblock %}
 
-<!--WEBA AJAX-->
-<script>
-    // Create an XMLHttpRequest object
-    const produitList = document.getElementById('listPro')
-    const produit = document.getElementById('produit')
-    const butPre = document.getElementById('buttonPrevious')
-    const butNex = document.getElementById('buttonNext')
-
-    let i = 0
-    let len;
-    let pro;
-
-    const xhttp = new XMLHttpRequest();
-
-    // Define a callback function
-    xhttp.onload = function (){
-        const response = JSON.parse(xhttp.responseText);
-        console.info(response);
-        // Here you can use the Data
-        pro = response;
-    }
 
 
-    // Send a request
-    xhttp.open("GET", "produitWithAjax");
-    xhttp.send();
-
-    ////// Event //////
-    butNex.addEventListener('click', ()=>){
-        i += 1
-    }
-
-    /// Function display
-    function displayPro(){
-
-    }
-
-
-    /// Functon Next
-    function next(i) {
-        if(i < len - 1){
-            i++;
-            displayPro(i)
-        }
-    }
-
-    /// Functon Previous
-    function previous(i) {
-        if(i > 0){
-            i--;
-            displayPro(i)
-        }
-    }
- </script>

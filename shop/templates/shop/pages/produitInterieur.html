@@ -73,7 +73,7 @@
         const response = JSON.parse(xhttp.responseText);
         console.info(response);
         // Here you can use the Data
-        // pro =
+        pro = response;
     }
 
 
@@ -83,6 +83,28 @@
 
     ////// Event //////
     butNex.addEventListener('click', ()=>){
-        visible += 1
+        i += 1
+    }
+
+    /// Function display
+    function displayPro(){
+
+    }
+
+
+    /// Functon Next
+    function next(i) {
+        if(i < len - 1){
+            i++;
+            displayPro(i)
+        }
+    }
+
+    /// Functon Previous
+    function previous(i) {
+        if(i > 0){
+            i--;
+            displayPro(i)
+        }
     }
  </script>

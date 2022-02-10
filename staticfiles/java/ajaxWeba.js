@@ -9,6 +9,7 @@ alert("Hello")
     let len;
     let pro;
 
+    // Create an XMLHttpRequest
     const xhttp = new XMLHttpRequest();
 
     // Define a callback function
@@ -16,8 +17,8 @@ alert("Hello")
 
         const response = JSON.parse(xhttp.responseText);
         console.log(response);
+        console.info(response);
         // Here you can use the Data
-        // pro = response;
     }
 
 

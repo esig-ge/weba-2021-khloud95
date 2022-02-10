@@ -116,9 +116,6 @@ def produitInterieur(request):
     return render(request, 'shop/pages/produitInterieur.html', context)
 
 def produitWithAjax(request):
-    # produitInt = ProduitInterieur.objects.all()
-    # prix = Prix.objects.all()
-
     listePro = list(ProduitInterieur.objects.values())
     listePrix = list(Prix.objects.values())
 

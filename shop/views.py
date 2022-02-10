@@ -116,6 +116,7 @@ def produitInterieur(request):
     return render(request, 'shop/pages/produitInterieur.html', context)
 
 def produitWithAjax(request):
+    pro = ProduitInterieur.objects.all()
     listePro = list(ProduitInterieur.objects.values())
     listePrix = list(Prix.objects.values())
 
@@ -127,7 +128,7 @@ def produitWithAjax(request):
     #     produitListe.append(pro)
     # print(produitListe)
 
-    return JsonResponse({'dataPro': listePro, 'dataPrix': listePrix, 'sizeList': listProSize})
+    return JsonResponse({'listePro': listePro, 'listePrix': listePrix, 'listProSize': listProSize})
 ###########################################################################################
 
 

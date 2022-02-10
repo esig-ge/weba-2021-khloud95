@@ -28,7 +28,10 @@ alert("Hello")
 
     /// Function display
     function displayPro(){
-        produit.innerHTML = "Produit nom : ";
+        // produit.innerHTML = "Produit nom : ";
+        for(i = 0; i < response.listProSize; i++){
+            produit.innerHTML("Produit " + i + " : " + response.pro.nom[i])
+        }
     }
 
     /// Functon Next

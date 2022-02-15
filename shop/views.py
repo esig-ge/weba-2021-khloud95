@@ -128,8 +128,25 @@ def produitWithAjax(request):
     #     produitListe.append(pro)
     # print(produitListe)
 
-    return JsonResponse({'listePro': listePro, 'listePrix': listePrix, 'listProSize': listProSize})
+    return JsonResponse({'listePro': listePro}, safe=False)
 ###########################################################################################
+
+def proCosMenu(request):
+    proCos = Cosmetique.objects.all()
+    dicPro = {"produit": []}
+    for pro in proCos:
+        dicPro["produit"].append(pro.nom)
+    return JsonResponse({'dicPro': dicPro})
+
+def proVetMenu(request):
+    proCos = Vetement.objects.all()
+    listProVet = []
+    for pro in proCos:
+        listProVet.append(pro)
+    return JsonResponse({'listProVet': listProVet}, safe=False)
+
+
+######################################################################################################
 
 
 ###############################################

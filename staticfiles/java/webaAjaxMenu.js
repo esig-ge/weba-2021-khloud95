@@ -5,6 +5,8 @@ window.onload = function (){
     /// Page Accueil ///
     const content = document.getElementById("originContent");
 
+    const myContent = document.getElementById("produitContent");
+
 
 
     function changeContent(){
@@ -25,11 +27,15 @@ window.onload = function (){
         xhttp.onload = function() {
           // Here you can use the Data
             const response = JSON.parse(xhttp.responseText);
-            console.log(response);
+            console.log(response.dicPro['produit']);
 
-            for (let i = 0; i < response.dicPro.length; i++) {
-                const contenu = document.createTextNode("Produit " + i + " : " + response.dicPro.nom[i]);
-                content.appendChild(contenu);
+
+            for (let i = 0; i < response.dicPro['produit'].length; i++) {
+                newEle = document.createTextNode("Margaux, créatrice de la marque Amatha")
+                const contenu = document.createTextNode("Produit " + i + " : " + response.dicPro['produit'][i]);
+                myContent.appendChild(contenu);
+                myContent.appendChild(newEle);
+                console.log(i)
             }
 
         }

@@ -27,7 +27,7 @@ window.onload = function (){
             const response = JSON.parse(xhttp.responseText);
             console.log(response);
 
-            for (let i = 0; i < response.dicPro.nom.length; i++) {
+            for (let i = 0; i < response.dicPro.length; i++) {
                 const contenu = document.createTextNode("Produit " + i + " : " + response.dicPro.nom[i]);
                 content.appendChild(contenu);
             }

@@ -8,7 +8,6 @@ window.onload = function (){
     const myContent = document.getElementById("produitContent");
 
 
-
     function changeContent(){
         content.style.display = 'none';
         console.log("Hello");
@@ -31,10 +30,10 @@ window.onload = function (){
 
 
             for (let i = 0; i < response.dicPro['produit'].length; i++) {
-                newEle = document.createTextNode("Margaux, créatrice de la marque Amatha")
+                // newEle = document.createTextNode("Margaux, créatrice de la marque Amatha")
                 const contenu = document.createTextNode("Produit " + i + " : " + response.dicPro['produit'][i]);
                 myContent.appendChild(contenu);
-                myContent.appendChild(newEle);
+                // myContent.appendChild(newEle);
                 console.log(i)
             }
 
@@ -45,10 +44,20 @@ window.onload = function (){
         xhttp.open("GET", "proCosMenu");
         xhttp.send();
 
+        /// remove event
+        cosButton.removeEventListener('click', afficherPro);
+
+
+
     }
 
     cosButton.addEventListener('click', changeContent);
     cosButton.addEventListener('click', afficherPro);
+
+    // if(myContent.innerHTML === null){
+    //     cosButton.addEventListener('click', afficherPro);
+    // }
+
 }
 
 

@@ -133,10 +133,12 @@
                                     <a class="nav-link" href="{% url 'shop:produitInterieur' %}">Les produits d'intérieur</a>
                                 </li>
 
-<!--                                    <script src="{% static 'java/webaAjaxMenu.js' %}"></script>-->
+                                <!--AJAX-->
+                                <script src="{% static 'java/webaAjaxMenu.js' %}"></script>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{% url 'shop:cosmetique' %}">Les cosmétiques</a>
+                                    <a class="nav-link" id="secondBut">Les cosmétiques</a>
                                 </li>
+                                <!--AJAX-->
 
                                 <li class="nav-item">
                                     <a class="nav-link" href="{% url 'shop:vetements' %}">Les accessoires</a>

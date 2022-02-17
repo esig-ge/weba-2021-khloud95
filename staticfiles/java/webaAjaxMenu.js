@@ -31,9 +31,12 @@ window.onload = function (){
 
             for (let i = 0; i < response.listeProCos.length; i++) {
                 // newEle = document.createTextNode("Margaux, créatrice de la marque Amatha")
-                const contenu = document.createTextNode("Produit " + " : " + response.listeProCos[i].nom + " " +
-                                                                response.listeProCos[i].description);
-                myContent.appendChild(contenu);
+                // const contenu = document.createTextNode("Produit " + " : " + response.listeProCos[i].nom + " " +
+                //                                                 response.listeProCos[i].description);
+                myContent.appendChild(document.createTextNode("Produit " + " : " + response.listeProCos[i].nom + " " +
+                                                                response.listeProCos[i].description));
+                myContent.appendChild(document.createElement("br"));
+                // myContent.appendChild(contenu);
                 // myContent.appendChild(newEle);
                 console.log(i)
             }

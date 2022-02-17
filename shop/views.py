@@ -135,7 +135,7 @@ def proCosMenu(request):
     proCos = Cosmetique.objects.all()
     dicPro = {"produit": []}
     for pro in proCos:
-        dicPro["produit"].append(pro.nom)
+        dicPro["produit"].append(pro.nom + pro.description)
     return JsonResponse({'dicPro': dicPro})
 
 def proVetMenu(request):

@@ -7,6 +7,9 @@ window.onload = function (){
 
     const myContent = document.getElementById("produitContent");
 
+    // Compteur pour compter les produits
+     var cpt = 1;
+
 
     function changeContent(){
         content.style.display = 'none';
@@ -30,15 +33,17 @@ window.onload = function (){
 
 
             for (let i = 0; i < response.listeProCos.length; i++) {
-                // newEle = document.createTextNode("Margaux, créatrice de la marque Amatha")
-                // const contenu = document.createTextNode("Produit " + " : " + response.listeProCos[i].nom + " " +
-                //                                                 response.listeProCos[i].description);
-                myContent.appendChild(document.createTextNode("Produit " + " : " + response.listeProCos[i].nom + " " +
+                var image = document.createElement("img");
+                image.src = "../img/listeProCos[i].nomFichier";
+                myContent.appendChild(document.createTextNode("Produit " + " " + cpt + " : " + response.listeProCos[i].nom + ", Description : " +
                                                                 response.listeProCos[i].description));
+
+                myContent.appendChild(image);
+
+                cpt += 1;
+
                 myContent.appendChild(document.createElement("br"));
-                // myContent.appendChild(contenu);
-                // myContent.appendChild(newEle);
-                console.log(i)
+
             }
 
         }
@@ -58,9 +63,6 @@ window.onload = function (){
     cosButton.addEventListener('click', changeContent);
     cosButton.addEventListener('click', afficherPro);
 
-    // if(myContent.innerHTML === null){
-    //     cosButton.addEventListener('click', afficherPro);
-    // }
 
 }
 

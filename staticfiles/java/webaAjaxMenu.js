@@ -26,12 +26,13 @@ window.onload = function (){
         xhttp.onload = function() {
           // Here you can use the Data
             const response = JSON.parse(xhttp.responseText);
-            console.log(response.dicPro['produit']);
+            console.log(response.listeProCos);
 
 
-            for (let i = 0; i < response.dicPro['produit'].length; i++) {
+            for (let i = 0; i < response.listeProCos.length; i++) {
                 // newEle = document.createTextNode("Margaux, créatrice de la marque Amatha")
-                const contenu = document.createTextNode("Produit " + i + " : " + response.dicPro['produit'][i]);
+                const contenu = document.createTextNode("Produit " + " : " + response.listeProCos[i].nom + " " +
+                                                                response.listeProCos[i].description);
                 myContent.appendChild(contenu);
                 // myContent.appendChild(newEle);
                 console.log(i)

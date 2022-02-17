@@ -133,10 +133,15 @@ def produitWithAjax(request):
 
 def proCosMenu(request):
     proCos = Cosmetique.objects.all()
+
+    ### liste ####
+    listeProCos = list(Cosmetique.objects.values())
+    ##############
+
     dicPro = {"produit": []}
     for pro in proCos:
         dicPro["produit"].append(pro.nom + pro.description)
-    return JsonResponse({'dicPro': dicPro})
+    return JsonResponse({'listeProCos': listeProCos}, safe=False)
 
 def proVetMenu(request):
     proCos = Vetement.objects.all()

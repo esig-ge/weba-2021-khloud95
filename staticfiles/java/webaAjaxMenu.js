@@ -58,7 +58,7 @@ window.onload = function (){
 
         // Send a request
         // true --> async
-        xhttp.open("GET", "proCosMenu", false);
+        xhttp.open("GET", "proCosMenu", true);
         xhttp.send();
 
         /// remove event

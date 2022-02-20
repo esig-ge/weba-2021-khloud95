@@ -38,7 +38,7 @@ window.onload = function (){
                 myContent.appendChild(document.createTextNode("Produit " + " " + cpt + " : " + response.listeProCos[i].nom + ", Description : " +
                                                                 response.listeProCos[i].description));
 
-                myContent.appendChild(image);
+                // myContent.appendChild(image);
 
                 cpt += 1;
 
@@ -46,11 +46,19 @@ window.onload = function (){
 
             }
 
+            /// Ajouter un button pour le prochain produit
+            // const button = document.createElement('BUTTON');
+            // const text = document.createTextNode("Prochain");
+            // button.appendChild(text);
+            // myContent.appendChild(button);
+
+
+
         }
 
         // Send a request
         // true --> async
-        xhttp.open("GET", "proCosMenu");
+        xhttp.open("GET", "proCosMenu", false);
         xhttp.send();
 
         /// remove event

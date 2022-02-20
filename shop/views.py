@@ -1,3 +1,4 @@
+import time
 
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
@@ -138,9 +139,10 @@ def proCosMenu(request):
     listeProCos = list(Cosmetique.objects.values())
     ##############
 
-    dicPro = {"produit": []}
-    for pro in proCos:
-        dicPro["produit"].append(pro.nom + pro.description)
+    # dicPro = {"produit": []}
+    # for pro in proCos:
+    #     dicPro["produit"].append(pro.nom + pro.description)
+    time.sleep(5)
     return JsonResponse({'listeProCos': listeProCos}, safe=False)
 
 def proVetMenu(request):

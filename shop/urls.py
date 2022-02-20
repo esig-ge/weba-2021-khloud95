@@ -25,9 +25,12 @@ urlpatterns = [
 
     # WEBA AJAX
     path('produitWithAjax', views.produitWithAjax, name='produitWithAjax'),
+
+    # WEBA AJAX
+    ################################################################################################################
     path('proCosMenu', views.proCosMenu, name='proCosMenu'),
+    ################################################################################################################
 
-
-# produitWithAjax
+    # produitWithAjax
 
 ]

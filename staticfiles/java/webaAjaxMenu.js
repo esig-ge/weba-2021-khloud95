@@ -2,9 +2,9 @@ window.onload = function (){
 
     /// Page Header ///
     const cosButton = document.getElementById("secondBut");
+
     /// Page Accueil ///
     const content = document.getElementById("originContent");
-
     const myContent = document.getElementById("produitContent");
 
     // Compteur pour compter les produits
@@ -28,13 +28,15 @@ window.onload = function (){
         // Define a callback function
         xhttp.onload = function() {
           // Here you can use the Data
+            // JSON.parse() to convert text into a JavaScript object
             const response = JSON.parse(xhttp.responseText);
             console.log(response.listeProCos);
 
 
             for (let i = 0; i < response.listeProCos.length; i++) {
-                var image = document.createElement("img");
-                image.src = "../img/listeProCos[i].nomFichier";
+                // var image = document.createElement("img");
+                // image.src = "../img/listeProCos[i].nomFichier";
+
                 myContent.appendChild(document.createTextNode("Produit " + " " + cpt + " : " + response.listeProCos[i].nom + ", Description : " +
                                                                 response.listeProCos[i].description));
 

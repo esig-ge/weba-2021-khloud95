@@ -132,6 +132,9 @@ def produitWithAjax(request):
     return JsonResponse({'listePro': listePro}, safe=False)
 ###########################################################################################
 
+
+
+###########################################################################################################################################
 def proCosMenu(request):
     proCos = Cosmetique.objects.all()
 
@@ -140,7 +143,13 @@ def proCosMenu(request):
     ##############
 
     time.sleep(3)
+
+    ## If the safe parameter is set to False ,
+    # any object can be passed for serialization;
+    # otherwise only dict instances are allowed
     return JsonResponse({'listeProCos': listeProCos}, safe=False)
+###########################################################################################################################################
+
 
 def proVetMenu(request):
     proCos = Vetement.objects.all()

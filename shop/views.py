@@ -139,10 +139,7 @@ def proCosMenu(request):
     listeProCos = list(Cosmetique.objects.values())
     ##############
 
-    # dicPro = {"produit": []}
-    # for pro in proCos:
-    #     dicPro["produit"].append(pro.nom + pro.description)
-    time.sleep(5)
+    time.sleep(3)
     return JsonResponse({'listeProCos': listeProCos}, safe=False)
 
 def proVetMenu(request):

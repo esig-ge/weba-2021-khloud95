@@ -66,8 +66,6 @@ window.onload = function (){
         /// remove event
         cosButton.removeEventListener('click', afficherPro);
 
-
-
     }
 
     cosButton.addEventListener('click', changeContent);

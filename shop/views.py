@@ -147,7 +147,7 @@ def proCosMenu(request):
     ## If the safe parameter is set to False ,
     # any object can be passed for serialization;
     # otherwise only dict instances are allowed
-    return JsonResponse({'listeProCos': listeProCos}, safe=False)
+    return JsonResponse({'listeProCos': listeProCos})
 ###########################################################################################################################################
 
 
